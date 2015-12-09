@@ -148,7 +148,13 @@ void MainWindow::on_pushButton_2_clicked()
     while(m.PC < inslist.size())
     {
         QString labelINS = "The current instruction being executed is: " + inslist[m.PC];
+
         m.runInstruction(inslist[m.PC]);
+        if(m.stopped == true)
+        {
+            break;
+        }
+
         ui->labelINS->setText(labelINS);
         ui->labelACO->setText(QString::number(m.AC));
         ui->labelMARO->setText(QString::number(m.MAR));

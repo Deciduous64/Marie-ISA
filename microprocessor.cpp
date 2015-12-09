@@ -5,8 +5,6 @@
 //All code in microprocessor.cpp coded by Daniel unless stated otherwise
 //Exists as function definitions
 
-//TEMPORARY COMMENT, DON'T FORGET TO RE-ADD FUNCTIONALITY TO THE HALT INSTRUCTION
-
 MARIE::Microprocessor::Microprocessor()
 {
 }
@@ -32,6 +30,7 @@ void MARIE::Microprocessor::write (int key, int value)
 void MARIE::Microprocessor::runInstruction(QString inst)
 {
     QString code = inst;
+
     fetch();
     decode(code);
     execute(code);
@@ -123,7 +122,8 @@ void MARIE::Microprocessor::output()
 }
 
 //Instruction halt, halts running from the instruction list
-void MARIE::Microprocessor::halt()
+//CURRENTLY AIN'T WORKIN YET
+int MARIE::Microprocessor::halt()
 {
     stopped = true;
 }

@@ -14,11 +14,12 @@ private:
     //Memory memory;
 
     int opcode;
-    bool stopped = true;
 
 public:
-    int read (int address);
 
+    bool stopped = false;
+
+    int read (int address);
     void write (int address, int value);
 
     int MAR=0;
@@ -55,7 +56,7 @@ private:
 
     void output();
 
-    void halt();
+    int halt();
 
     void skipcond(QString code);
 
