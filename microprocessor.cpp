@@ -123,7 +123,7 @@ void MARIE::Microprocessor::output()
 
 //Instruction halt, halts running from the instruction list
 //CURRENTLY AIN'T WORKIN YET
-int MARIE::Microprocessor::halt()
+void MARIE::Microprocessor::halt()
 {
     stopped = true;
 }

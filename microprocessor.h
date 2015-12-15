@@ -56,7 +56,7 @@ private:
 
     void output();
 
-    int halt();
+    void halt();
 
     void skipcond(QString code);
 

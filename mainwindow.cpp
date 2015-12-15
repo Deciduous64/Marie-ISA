@@ -140,7 +140,7 @@ void MainWindow::on_pushButton_clicked()
 //Runs all the instructions in the instruction list
 void MainWindow::on_pushButton_2_clicked()
 {
-    //Run button pressed
+    //Reset button pressed
     MainWindow::on_pushButton_clicked();
 
     //Runs through every instruction in the instruction list (inslist)
