@@ -1,6 +1,10 @@
 #include "microprocessor.h"
 #include "mainwindow.h"
 #include <QString>
+#include <iostream>
+#include <QMessageBox>
+
+using namespace std;
 
 //All code in microprocessor.cpp coded by Daniel unless stated otherwise
 //Exists as function definitions
@@ -55,15 +59,15 @@ void MARIE::Microprocessor::decode(QString inst)
 
 //Based on opcode, selects required function
 void MARIE::Microprocessor::execute(QString code) {
-    switch (opcode) {
-    case 0000: jns();        break;
-    case 0001: load();       break;
-    case 0010: store();      break;
-    case 0011: add();        break;
-    case 0100: subt();       break;
-    case 0101: input();      break;
-    case 0110: output();     break;
-    case 0111: halt();       break;
+    switch (code.toInt()) {
+    case 0: jns();        break;
+    case 1: load();       break;
+    case 10: store();      break;
+    case 11: add();        break;
+    case 100: subt();       break;
+    case 101: input();      break;
+    case 110: output();     break;
+    case 111: halt();       break;
     case 1000: skipcond(code);   break;
     case 1001: jump();       break;
     case 1010: clear();      break;
@@ -71,7 +75,13 @@ void MARIE::Microprocessor::execute(QString code) {
     case 1100: jumpi();      break;
     case 1101: loadi();      break;
     case 1110: storei();     break;
+
     }
+    //string codex = opcode;
+    //QMessageBox::information(this,"",code);
+    //cout << code << endl;
+    cout << AC <<endl;
+    cout << MBR <<endl;
 }
 
 //Instruction Jump and Store
@@ -101,12 +111,15 @@ void MARIE::Microprocessor::store()
 void MARIE::Microprocessor::add()
 {
     AC = (AC + MBR);
+    cout << AC <<endl;
+    cout << MBR <<endl;
 }
 
 //Instruction subtract, subtracts the values of the AC and MBR, sets AC
 void MARIE::Microprocessor::subt()
 {
     AC = (AC - MBR);
+
 }
 
 //Instruction input, sets the InREG (AC)
